@@ -93,15 +93,18 @@
         </header>
         </div>
         <div class="main">
-        <p class="headlineText"><b>Headline:</b> </p>
+        <p class="headlineText">Headline:</p>
         <a class="articleTitle"  :href="article.url" target="_blank"  >
           <section class="headlineApi" v-html="article.title" ></section>
         </a>
+        <p class="headlineText">Description:</p>
+            <section class="readLess" v-html="article.description"></section>
         <p class="headlineText" >Author:</p>
             <section class="authorApi" v-html="article.author"></section>
         
         <p class="headlineText">Published At: </p>
           <section class="dateApi" v-html = "article.publishedAt"></section>
+          
         </div>     
       </article>
     </div>
@@ -127,32 +130,38 @@
     }
     .newsList{
         align-content: center;
-        top: 128px;
-        padding-top: 60px;
+        top: 64px;
+        justify-content: flex-end;
+        padding-top: 0px;
         display: -ms-flexbox; /* IE10 */
         display: flex;
         -ms-flex-wrap: wrap; /* IE10 */
         flex-wrap: wrap;
-      
-      article{
-        top: -128px;
-        display: grid;
-        grid-template-columns: 600px auto 800px;
-        grid-template-rows: 300px;
         border-left: 2px solid #D56067;
-        border-top: 1px solid #D56067;
+        border-top: 2px solid #D56067;
         border-right: 2px solid #D56067;
-        overflow: hidden;
+        border-bottom: 2px solid #D56067;
+      article{
         
+        top: -128px;
+        display:contents;
+        //grid-template-columns: 600px auto 800px;
+        //grid-template-rows: 300px;
+        //border-left: 2px solid #D56067;
+        //border-top: 2px solid #D56067;
+        //border-right: 2px solid #D56067;
+        
+        overflow: hidden;
+        justify-content: flex-end;
       }
       .headerPic{
         display:flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         overflow: hidden;
       
         img{
-          max-width: 100%;
+          max-width: 70%;
           height: auto;
         }
         
@@ -162,15 +171,17 @@
       
       }
 
-      .main {
-      -ms-flex: 30%; /* IE10 */
-      flex: 30%;
+      .side {
+      -ms-flex: 50%; /* IE10 */
+      flex: 50%;
       }
 
 /* Main column */
-    .side {   
-      -ms-flex: 70%; /* IE10 */
-      flex: 70%;
+    .main {   
+      -ms-flex: 50%; /* IE10 */
+      flex: 50%;
+      display: inline;
+      flex-wrap: wrap;
   
     }
 
@@ -185,14 +196,27 @@
         font-size: 1.2rem;
         display: flex;
         flex-wrap: wrap;
+        float: left;
+        flex: auto;
+        left: -25%;
+        
+        
+      }
+
+      .readLess{
+       display:inline-flex;
+       top: -32px;
       }
     
       section{
         margin: 0;
-        padding: 8px 16px;
+        padding: 4px 32px;
         height: 50px;
-        display: flex;
+        display:flex;
         flex-wrap: wrap;
+        flex: auto;
+        justify-content: flex-end;
+        
       }
 
     
